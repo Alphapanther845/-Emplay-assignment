@@ -1,0 +1,21 @@
+{
+    "bid_number": null,
+    "title": null,
+    "due_date": null,
+    "bid_submission_type": "Online",
+    "pre_bid_meeting": null,
+    "installation_required": true,
+    "bid_bond_requirement": null,
+    "delivery_date": null,
+    "payment_terms": null,
+    "additional_documentation_required": null,
+    "manufacturer_for_registration": null,
+    "contract_or_cooperative_to_use": null,
+    "model_number": null,
+    "part_number": null,
+    "product": null,
+    "contact_info": null,
+    "company_name": "Indicate",
+    "bid_summary": null,
+    "product_specification": null
+}
