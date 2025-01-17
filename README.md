@@ -79,24 +79,3 @@ Notes:
 Unsupported Formats: The code only supports .html and .pdf files. If you need to process other file formats, modify the script accordingly.
 Custom Regex Patterns: The regular expressions can be modified to adapt to different document structures.
 Error Handling: Errors are logged for each file, so you can easily debug issues in the document processing.
-Conclusion:
-This script provides a quick way to extract structured bid information from HTML and PDF documents using both traditional regex and advanced NLP techniques, making it a powerful tool for automating data extraction in bid-related documents.
-
-This README provides an overview of how NLP is applied in your code and guides users through the setup and execution of the project.
-
-less
-Copy
-Edit
-
-### Key Changes:
-1. **Headings:** I used `#` for main headings, `##` for subheadings, and so on, to improve readability.
-2. **Code Blocks:** I wrapped command-line instructions (like `pip install` and the Python script) in triple backticks (```) for better formatting.
-3. **Bullet Points and Lists:** I used bullet points (`-`) for the features, prerequisites, and steps.
-
-This formatting will make the README file clearer and more professional when uploaded to GitHub.
-
-
-
-
-
-
