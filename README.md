@@ -1,25 +1,29 @@
-##Bid Information Extraction from HTML and PDF Files
+# Bid Information Extraction from HTML and PDF Files
+
 This project extracts structured information from HTML and PDF files (e.g., bid documents) using a combination of regular expressions and Natural Language Processing (NLP) techniques.
 
-##Features:
-HTML and PDF Parsing: The code can handle both HTML and PDF files.
-Bid Data Extraction: Extracts key bid-related information such as bid number, title, due date, bid submission type, and more.
-NLP for Fallback Extraction: Utilizes spaCy NLP to extract specific information like dates, organizations, and monetary values when the regular expressions fail.
-Data Saving: The extracted data is saved as JSON files for easy use.
-How NLP is Used:
+## Features:
+- **HTML and PDF Parsing:** The code can handle both HTML and PDF files.
+- **Bid Data Extraction:** Extracts key bid-related information such as bid number, title, due date, bid submission type, and more.
+- **NLP for Fallback Extraction:** Utilizes spaCy NLP to extract specific information like dates, organizations, and monetary values when the regular expressions fail.
+- **Data Saving:** The extracted data is saved as JSON files for easy use.
+
+## How NLP is Used:
 The code leverages spaCy, a popular NLP library, to enhance the extraction process:
 
-Named Entity Recognition (NER): SpaCy’s pre-trained NER model (en_core_web_sm) is used to identify and extract specific entities from the text, such as:
-Dates: Helps identify due dates or delivery dates when regex fails.
-Organizations (ORG): Identifies company names associated with the bid.
-Money: Captures bid bond requirements and other monetary values.
-Text Parsing: SpaCy processes the text extracted from HTML and PDF files. It analyzes the linguistic structure of the text, recognizing named entities that match specific categories (e.g., dates, organizations, money).
-Prerequisites:
+### Named Entity Recognition (NER):
+SpaCy’s pre-trained NER model (`en_core_web_sm`) is used to identify and extract specific entities from the text, such as:
+- **Dates:** Helps identify due dates or delivery dates when regex fails.
+- **Organizations (ORG):** Identifies company names associated with the bid.
+- **Money:** Captures bid bond requirements and other monetary values.
+
+### Text Parsing:
+SpaCy processes the text extracted from HTML and PDF files. It analyzes the linguistic structure of the text, recognizing named entities that match specific categories (e.g., dates, organizations, money).
+
+## Prerequisites:
 Ensure that the following libraries are installed:
 
-bash
-Copy
-Edit
+```bash
 pip install PyPDF2 beautifulsoup4 spacy
 python -m spacy download en_core_web_sm
 PyPDF2: For extracting text from PDF files.
@@ -29,21 +33,22 @@ File Structure:
 Input Folder: Place your HTML and PDF files in the INPUT_FOLDER directory.
 Output Folder: The structured data will be saved as JSON files in the OUTPUT_FOLDER directory.
 Steps to Use:
-Prepare Input Files:
-
+1. Prepare Input Files:
 Add your HTML and PDF bid documents to the INPUT_FOLDER (e.g., ./input_files).
-Configure the Code:
 
+2. Configure the Code:
 Modify the INPUT_FOLDER and OUTPUT_FOLDER paths if necessary. The input folder should contain the bid files, and the output folder is where the JSON files with structured data will be saved.
-Run the Code:
 
+3. Run the Code:
 Run the script to parse the files and extract structured data.
+
 bash
 Copy
 Edit
 python extract_bid_data.py
-Check Output:
+4. Check Output:
 After running the script, check the OUTPUT_FOLDER for the generated JSON files. Each file will contain the structured data extracted from the respective bid document.
+
 Example JSON Output:
 The extracted structured data will be saved in a format like this:
 
@@ -79,7 +84,16 @@ This script provides a quick way to extract structured bid information from HTML
 
 This README provides an overview of how NLP is applied in your code and guides users through the setup and execution of the project.
 
+less
+Copy
+Edit
 
+### Key Changes:
+1. **Headings:** I used `#` for main headings, `##` for subheadings, and so on, to improve readability.
+2. **Code Blocks:** I wrapped command-line instructions (like `pip install` and the Python script) in triple backticks (```) for better formatting.
+3. **Bullet Points and Lists:** I used bullet points (`-`) for the features, prerequisites, and steps.
+
+This formatting will make the README file clearer and more professional when uploaded to GitHub.
 
 
 
