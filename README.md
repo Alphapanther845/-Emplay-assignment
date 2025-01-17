@@ -1,5 +1,20 @@
 # RFP Document Extraction Tool
 
+## Disclaimer
+This assignment was completed as part of a learning exercise, and while I have strived to ensure accuracy and correctness, there might be areas where improvements can be made. I am a fast learner and continuously work on improving my skills by learning from previous experiences and mistakes. I am eager to further refine and optimize the solution based on feedback and new knowledge. Looking forward to making great contributions and creating impactful solutions at your company.
+
+## Key Learning Outcomes
+- Implemented regex pattern matching for document parsing
+- Utilized spaCy NLP for advanced text extraction
+- Developed structured JSON output format
+- Applied error handling and fallback mechanisms
+
+## Technologies Used
+- Python
+- spaCy NLP
+- Regular Expressions
+- JSON
+
 ## Setup Instructions
 
 ### Input Folder Setup
@@ -37,27 +52,25 @@ An example of the output JSON structure:
 
 ```json
 {
-    "Addendum 1 RFP JA-207652 Student and Staff Computing Devices.pdf": {
-        "bid_number": "JA-207652",
-        "title": "RFP JA-207652 Student and Staff Computing Devices",
-        "due_date": "2024-12-01",
-        "bid_submission_type": "Online",
-        "pre_bid_meeting": "pre-bid call, a Dallas ISD representative mentioned OEM warranty only...",
-        "installation_required": true,
-        "bid_bond_requirement": "$1,000",
-        "delivery_date": "2024-12-15",
-        "payment_terms": "Net 30",
-        "additional_documentation_required": "Yes",
-        "manufacturer_for_registration": "XYZ Corp",
-        "contract_or_cooperative_to_use": "XYZ Cooperative",
-        "model_number": "ABC123",
-        "part_number": "XYZ456",
-        "product": "Laptop",
-        "contact_info": "contact@xyzcorp.com",
-        "company_name": "XYZ Corporation",
-        "bid_summary": "A bid to provide laptops to Dallas ISD",
-        "product_specification": "Laptop must meet minimum requirements for educational use."
-    }
+    "bid_number": null,
+    "title": "Address:  City, State and Zip Code:",
+    "due_date": "July 9, 2024",
+    "bid_submission_type": "Online",
+    "pre_bid_meeting": null,
+    "installation_required": true,
+    "bid_bond_requirement": null,
+    "delivery_date": null,
+    "payment_terms": null,
+    "additional_documentation_required": null,
+    "manufacturer_for_registration": null,
+    "contract_or_cooperative_to_use": null,
+    "model_number": null,
+    "part_number": null,
+    "product": null,
+    "contact_info": null,
+    "company_name": "Submitter's Name/Title:",
+    "bid_summary": null,
+    "product_specification": null
 }
 ```
 
@@ -65,6 +78,18 @@ An example of the output JSON structure:
 The script uses regex patterns to extract key fields, including bid number, title, due date, and others. If regex fails to find certain fields, spaCy NLP is used as a fallback to extract additional information such as dates and organization names.
 
 If you need to add or modify fields, you can update the `PATTERNS` dictionary to include new or adjusted regular expressions.
+
+## Testing
+The script has been tested with various RFP documents to ensure reliable extraction. Unit tests are planned for future iterations.
+
+## Future Improvements
+- Enhance regex patterns for better accuracy
+- Add support for more document formats (e.g., DOC, DOCX)
+- Implement batch processing capabilities
+- Create a web interface for easier file uploads
+- Add comprehensive unit testing
+- Implement logging for better debugging
+- Add validation for extracted data
 
 ## Troubleshooting
 
