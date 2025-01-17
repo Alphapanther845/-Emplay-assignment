@@ -1,81 +1,116 @@
-# Bid Information Extraction from HTML and PDF Files
+# RFP Document Extraction using NLP and Regex
 
-This project extracts structured information from HTML and PDF files (e.g., bid documents) using a combination of regular expressions and Natural Language Processing (NLP) techniques.
+## Overview
+This script processes RFP (Request for Proposal) documents in PDF and HTML formats to extract structured information using regex patterns and Natural Language Processing (NLP) techniques. The extracted data is saved in JSON format for further use and analysis.
 
-## Features:
-- **HTML and PDF Parsing:** The code can handle both HTML and PDF files.
-- **Bid Data Extraction:** Extracts key bid-related information such as bid number, title, due date, bid submission type, and more.
-- **NLP for Fallback Extraction:** Utilizes spaCy NLP to extract specific information like dates, organizations, and monetary values when the regular expressions fail.
-- **Data Saving:** The extracted data is saved as JSON files for easy use.
+## Key Features:
+- Processes RFP documents in both HTML and PDF formats.
+- Extracts key fields such as bid number, title, due date, company name, product specification, etc.
+- Utilizes regex for field extraction and spaCy for fallback NLP-based extraction (e.g., date and organization names).
+- Outputs the extracted data in structured JSON format for each document.
 
-## How NLP is Used:
-The code leverages spaCy, a popular NLP library, to enhance the extraction process:
+## Requirements
 
-### Named Entity Recognition (NER):
-SpaCy’s pre-trained NER model (`en_core_web_sm`) is used to identify and extract specific entities from the text, such as:
-- **Dates:** Helps identify due dates or delivery dates when regex fails.
-- **Organizations (ORG):** Identifies company names associated with the bid.
-- **Money:** Captures bid bond requirements and other monetary values.
+### Software and Libraries
+- Python: Version 3.8 or above.
+- Required Libraries: Install the following Python packages:
+  ```bash
+  pip install PyPDF2 beautifulsoup4 spacy
+  python -m spacy download en_core_web_sm
 
-### Text Parsing:
-SpaCy processes the text extracted from HTML and PDF files. It analyzes the linguistic structure of the text, recognizing named entities that match specific categories (e.g., dates, organizations, money).
 
-## Prerequisites:
-Ensure that the following libraries are installed:
+Here's the README file for the code you provided:
 
-```bash
-pip install PyPDF2 beautifulsoup4 spacy
-python -m spacy download en_core_web_sm
-PyPDF2: For extracting text from PDF files.
-BeautifulSoup: For parsing HTML files.
-spaCy: For natural language processing tasks, especially Named Entity Recognition.
-File Structure:
-Input Folder: Place your HTML and PDF files in the INPUT_FOLDER directory.
-Output Folder: The structured data will be saved as JSON files in the OUTPUT_FOLDER directory.
-Steps to Use:
-1. Prepare Input Files:
-Add your HTML and PDF bid documents to the INPUT_FOLDER (e.g., ./input_files).
+markdown
+Copy
+Edit
+# RFP Document Extraction using NLP and Regex
 
-2. Configure the Code:
-Modify the INPUT_FOLDER and OUTPUT_FOLDER paths if necessary. The input folder should contain the bid files, and the output folder is where the JSON files with structured data will be saved.
+## Overview
+This script processes RFP (Request for Proposal) documents in PDF and HTML formats to extract structured information using regex patterns and Natural Language Processing (NLP) techniques. The extracted data is saved in JSON format for further use and analysis.
 
-3. Run the Code:
-Run the script to parse the files and extract structured data.
+## Key Features:
+- Processes RFP documents in both HTML and PDF formats.
+- Extracts key fields such as bid number, title, due date, company name, product specification, etc.
+- Utilizes regex for field extraction and spaCy for fallback NLP-based extraction (e.g., date and organization names).
+- Outputs the extracted data in structured JSON format for each document.
 
+## Requirements
+
+### Software and Libraries
+- Python: Version 3.8 or above.
+- Required Libraries: Install the following Python packages:
+  ```bash
+  pip install PyPDF2 beautifulsoup4 spacy
+  python -m spacy download en_core_web_sm
+Input Folder Setup
+The script expects the RFP documents in PDF or HTML format to be placed in the INPUT_FOLDER. You can set the path to the folder containing these files.
+Output Folder Setup
+The script will output the extracted structured data as JSON files into the OUTPUT_FOLDER.
+Directory Structure
+Ensure the directory structure is as follows:
+
+graphql
+Copy
+Edit
+.
+├── rfp_extraction.py             # The main Python script for RFP document extraction
+├── input_files/                  # Directory containing input PDF/HTML files
+├── output_files/                 # Directory for saving extracted JSON files
+How to Use
+1. Prepare Input Files
+Place the RFP documents (PDF or HTML) in the input_files directory.
+2. Run the Script
+Execute the script rfp_extraction.py:
 bash
 Copy
 Edit
-python extract_bid_data.py
-4. Check Output:
-After running the script, check the OUTPUT_FOLDER for the generated JSON files. Each file will contain the structured data extracted from the respective bid document.
-
-Example JSON Output:
-The extracted structured data will be saved in a format like this:
+python rfp_extraction.py
+The script will automatically process the files in the input_files directory and save the results as JSON files in the output_files directory.
+3. View Results
+The structured data for each RFP document will be saved as a JSON file with the same name as the input file but with a .json extension.
+Output Example
+An example of the output JSON structure:
 
 json
 Copy
 Edit
 {
-    "bid_number": "12345",
-    "title": "Bid for Software Development",
-    "due_date": "2024-03-01",
-    "bid_submission_type": "Online",
-    "pre_bid_meeting": "2024-02-15",
-    "bid_bond_requirement": "$5000",
-    "delivery_date": "2024-04-01",
-    "payment_terms": "30 days",
-    "additional_documentation_required": "Yes",
-    "manufacturer_for_registration": "ABC Corp",
-    "contract_or_cooperative_to_use": "ABC Coop",
-    "model_number": "XYZ123",
-    "part_number": "ABC456",
-    "product": "Software Development",
-    "contact_info": "John Doe, john.doe@example.com",
-    "company_name": "TechSolutions Inc.",
-    "bid_summary": "Bid for providing software development services.",
-    "product_specification": "Software for enterprise applications."
+    "Addendum 1 RFP JA-207652 Student and Staff Computing Devices.pdf": {
+        "bid_number": "JA-207652",
+        "title": "RFP JA-207652 Student and Staff Computing Devices",
+        "due_date": "2024-12-01",
+        "bid_submission_type": "Online",
+        "pre_bid_meeting": "pre-bid call, a Dallas ISD representative mentioned OEM warranty only...",
+        "installation_required": true,
+        "bid_bond_requirement": "$1,000",
+        "delivery_date": "2024-12-15",
+        "payment_terms": "Net 30",
+        "additional_documentation_required": "Yes",
+        "manufacturer_for_registration": "XYZ Corp",
+        "contract_or_cooperative_to_use": "XYZ Cooperative",
+        "model_number": "ABC123",
+        "part_number": "XYZ456",
+        "product": "Laptop",
+        "contact_info": "contact@xyzcorp.com",
+        "company_name": "XYZ Corporation",
+        "bid_summary": "A bid to provide laptops to Dallas ISD",
+        "product_specification": "Laptop must meet minimum requirements for educational use."
+    }
 }
-Notes:
-Unsupported Formats: The code only supports .html and .pdf files. If you need to process other file formats, modify the script accordingly.
-Custom Regex Patterns: The regular expressions can be modified to adapt to different document structures.
-Error Handling: Errors are logged for each file, so you can easily debug issues in the document processing.
+Notes
+The script uses regex patterns to extract key fields, including bid number, title, due date, and others.
+If regex fails to find certain fields, spaCy NLP is used as a fallback to extract additional information such as dates and organization names.
+If you need to add or modify fields, you can update the PATTERNS dictionary to include new or adjusted regular expressions.
+Troubleshooting
+Common Issues
+Missing NLP Model:
+If you encounter an error related to the spaCy model, make sure to download the required model using the following command:
+bash
+Copy
+Edit
+python -m spacy download en_core_web_sm
+Unsupported File Format:
+If the input document is neither a PDF nor an HTML file, the script will skip it with a warning. Ensure that your input files are in supported formats.
+Incorrect Output:
+If some fields are missing from the output, you may need to fine-tune the regex patterns or adjust the NLP extraction rules in the script.
